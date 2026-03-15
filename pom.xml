@@ -16,8 +16,8 @@
     </licenses>
 
 
-    <!-- FIXME change to your student repository URL for this project -->
-    <url>https://github.com/helmutneukirchen/HBV202GAssignment8</url>
+
+    <url>https://github.com/Konni27/ass8.git</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
