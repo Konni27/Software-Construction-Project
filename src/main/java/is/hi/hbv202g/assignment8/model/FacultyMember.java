@@ -1,6 +1,6 @@
-package is.hi.hbv202g.assignment8;
+package is.hi.hbv202g.assignment8.model;
 
-public class FacultyMember extends User{
+public class FacultyMember extends User {
     private String department;
 
     public FacultyMember(String name, String department) {

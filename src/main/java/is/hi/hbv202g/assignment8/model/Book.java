@@ -1,4 +1,6 @@
-package is.hi.hbv202g.assignment8;
+package is.hi.hbv202g.assignment8.model;
+
+import is.hi.hbv202g.assignment8.exception.EmptyAuthorListException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +15,7 @@ public class Book {
         this.authors.add(new Author(authorName));
     }
 
-    public Book(String title, List<Author> authors) throws EmptyAuthorListException{
+    public Book(String title, List<Author> authors) throws EmptyAuthorListException {
         if (authors == null || authors.isEmpty()){
             throw new EmptyAuthorListException("Author list cannot be empty");
         }
