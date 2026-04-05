@@ -115,15 +115,21 @@ public class LibrarySystem {
             throw new UserOrBookDoesNotExistException("User or book does not exist.");
         }
 
+        Lending lendingToRemove = null;
+
         for (Lending lending : lendings) {
             if (lending.getUser().equals(user) && lending.getBook().equals(book)) {
-                lendings.remove(lending);
-                notifyObservers("Book returned: " + book.getTitle() + " by " + user.getName());
-                return;
+                lendingToRemove = lending;
+                break;
             }
         }
 
-        throw new UserOrBookDoesNotExistException("Lending does not exist.");
+        if (lendingToRemove == null) {
+            throw new UserOrBookDoesNotExistException("Lending does not exist.");
+        }
+
+        lendings.remove(lendingToRemove);
+        notifyObservers("Book returned: " + book.getTitle() + " by " + user.getName());
     }
 
     public boolean isBookBorrowed(Book book) {
