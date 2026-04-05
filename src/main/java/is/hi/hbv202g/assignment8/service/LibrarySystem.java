@@ -11,9 +11,9 @@ import java.util.ArrayList;
 import java.util.List;
 public class LibrarySystem {
 
-    private List<is.hi.hbv202g.assignment8.model.Book> books;
-    private List<is.hi.hbv202g.assignment8.model.Lending> lendings;
-    private List<is.hi.hbv202g.assignment8.model.User> users;
+    private List<Book> books;
+    private List<Lending> lendings;
+    private List<User> users;
     private List<LibraryObserver> observers;
 
     public LibrarySystem() {
@@ -50,13 +50,13 @@ public class LibrarySystem {
     }
 
     public void addStudentUser(String name, boolean feePaid) {
-        users.add(new is.hi.hbv202g.assignment8.model.Student(name, feePaid));
+        users.add(new Student(name, feePaid));
         notifyObservers("Added student user: " + name);
 
     }
 
     public void addFacultyMemberUser(String name, String department) {
-        users.add(new is.hi.hbv202g.assignment8.model.FacultyMember(name, department));
+        users.add(new FacultyMember(name, department));
         notifyObservers("Added faculty member user: " + name);
 
     }
