@@ -1,4 +1,5 @@
 package is.hi.hbv202g.assignment8.observer;
 
-public class LibraryObserver {
+public interface LibraryObserver {
+    void onLibraryChanged(String message);
 }
