@@ -1,6 +1,6 @@
 package is.hi.hbv202g.assignment8.model;
 
-import is.hi.hbv202g.assignment8.User;
+import is.hi.hbv202g.assignment8.model.User;
 
 import java.time.LocalDate;
 
