@@ -16,6 +16,9 @@ public class LibrarySystem {
     private List<User> users;
     private List<LibraryObserver> observers;
 
+    /**
+     * Library system.
+     */
     public LibrarySystem() {
         this.books = new ArrayList<>();
         this.users = new ArrayList<>();
@@ -23,44 +26,68 @@ public class LibrarySystem {
         this.observers = new ArrayList<>();
     }
 
+    /**
+     * Add Observer.
+     */
     public void addObserver(LibraryObserver observer) {
         observers.add(observer);
     }
 
+    /**
+     * Removes Observer.
+     */
     public void removeObserver(LibraryObserver observer) {
         observers.remove(observer);
     }
 
+    /**
+     * Notification  Observer.
+     */
     private void notifyObservers(String message) {
         for (LibraryObserver observer : observers) {
             observer.onLibraryChanged(message);
         }
     }
 
+    /**
+     * Add Book With Title And Name Of Single Author.
+     */
     public void addBookWithTitleAndNameOfSingleAuthor(String title, String authorName) {
         Book book = new Book(title, authorName);
         books.add(book);
         notifyObservers("Added book: " + title);
     }
 
+    /**
+     * Add Book With Title And Author List.
+     */
     public void addBookWithTitleAndAuthorList(String title, List<Author> authors) throws EmptyAuthorListException {
         Book book = new Book(title, authors);
         books.add(book);
         notifyObservers("Added book: " + title);
     }
 
+    /**
+     * Add Student User.
+     */
     public void addStudentUser(String name, boolean feePaid) {
         users.add(new Student(name, feePaid));
         notifyObservers("Added student user: " + name);
 
     }
 
+    /**
+     * Add Faculty Member User.
+     */
     public void addFacultyMemberUser(String name, String department) {
         users.add(new FacultyMember(name, department));
         notifyObservers("Added faculty member user: " + name);
 
     }
 
+    /**
+     * Find Book by Title.
+     */
     public Book findBookByTitle(String title) {
         for (Book book : books) {
             if (book.getTitle().equalsIgnoreCase(title)) {
@@ -70,6 +97,9 @@ public class LibrarySystem {
         return null;
     }
 
+    /**
+     * Find User By Name.
+     */
     public User findUserByName(String name) {
         for (User user : users) {
             if (user.getName().equalsIgnoreCase(name)) {
@@ -79,6 +109,9 @@ public class LibrarySystem {
         return null;
     }
 
+    /**
+     * Borrow Book.
+     */
     public void borrowBook(User user, Book book) throws UserOrBookDoesNotExistException, BookAlreadyBorrowedException {
         if (user == null || book == null || !users.contains(user) || !books.contains(book)) {
             throw new UserOrBookDoesNotExistException("User or book does not exist.");
@@ -93,6 +126,9 @@ public class LibrarySystem {
     }
 
 
+    /**
+     * Extend Lending.
+     */
     public void extendLending(FacultyMember facultyMember, Book book, LocalDate newDueDate)
             throws UserOrBookDoesNotExistException {
         if (facultyMember == null || book == null || !users.contains(facultyMember) || !books.contains(book)) {
@@ -110,6 +146,9 @@ public class LibrarySystem {
         throw new UserOrBookDoesNotExistException("Lending does not exist.");
     }
 
+    /**
+     * Return Book.
+     */
     public void returnBook(User user, Book book) throws UserOrBookDoesNotExistException {
         if (user == null || book == null || !users.contains(user) || !books.contains(book)) {
             throw new UserOrBookDoesNotExistException("User or book does not exist.");
@@ -132,6 +171,9 @@ public class LibrarySystem {
         notifyObservers("Book returned: " + book.getTitle() + " by " + user.getName());
     }
 
+    /**
+     * Check if book borrowed.
+     */
     public boolean isBookBorrowed(Book book) {
         for (Lending lending : lendings) {
             if (lending.getBook().equals(book)) {
@@ -141,14 +183,23 @@ public class LibrarySystem {
         return false;
     }
 
+    /**
+     * Get Books.
+     */
     public List<Book> getBooks() {
         return books;
     }
 
+    /**
+     * Get Users.
+     */
     public List<User> getUsers() {
         return users;
     }
 
+    /**
+     * Get Lendings.
+     */
     public List<Lending> getLendings() {
         return lendings;
     }

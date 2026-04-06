@@ -14,11 +14,17 @@ public class LibrarySystemTest {
 
     private LibrarySystem librarySystem;
 
+    /**
+     * Set up Library System.
+     */
     @BeforeEach
     public void setUp() {
         librarySystem = new LibrarySystem();
     }
 
+    /**
+     * Add Student User Should Increase User Count.
+     */
     @Test
     public void addStudentUserShouldIncreaseUserCount() {
         librarySystem.addStudentUser("Anna", true);
@@ -26,6 +32,9 @@ public class LibrarySystemTest {
         assertEquals(1, librarySystem.getUsers().size());
     }
 
+    /**
+     * Add Book Should Increase Book Count.
+     */
     @Test
     public void addBookShouldIncreaseBookCount() {
         librarySystem.addBookWithTitleAndNameOfSingleAuthor("Clean Code", "Robert Martin");
@@ -33,6 +42,9 @@ public class LibrarySystemTest {
         assertEquals(1, librarySystem.getBooks().size());
     }
 
+    /**
+     * Find Book By Title Should Return Correct Book.
+     */
     @Test
     public void findBookByTitleShouldReturnCorrectBook() {
         librarySystem.addBookWithTitleAndNameOfSingleAuthor("Clean Code", "Robert Martin");
@@ -43,6 +55,9 @@ public class LibrarySystemTest {
         assertEquals("Clean Code", book.getTitle());
     }
 
+    /**
+     * Find Book By Title Should Return Null When Missing.
+     */
     @Test
     public void findBookByTitleShouldReturnNullWhenMissing() {
         Book book = librarySystem.findBookByTitle("Unknown Book");
@@ -50,6 +65,9 @@ public class LibrarySystemTest {
         assertNull(book);
     }
 
+    /**
+     * Find User By Name Should Return Correct User.
+     */
     @Test
     public void findUserByNameShouldReturnCorrectUser() {
         librarySystem.addStudentUser("Anna", true);
@@ -60,6 +78,9 @@ public class LibrarySystemTest {
         assertEquals("Anna", user.getName());
     }
 
+    /**
+     * Borrow Book Should Create Lending.
+     */
     @Test
     public void borrowBookShouldCreateLending() throws UserOrBookDoesNotExistException, BookAlreadyBorrowedException {
         librarySystem.addStudentUser("Anna", true);
@@ -74,6 +95,9 @@ public class LibrarySystemTest {
         assertTrue(librarySystem.isBookBorrowed(book));
     }
 
+    /**
+     * Borrowing Already Borrowed Book Should Throw Exception.
+     */
     @Test
     public void borrowingAlreadyBorrowedBookShouldThrowException()
             throws UserOrBookDoesNotExistException, BookAlreadyBorrowedException {
@@ -92,6 +116,9 @@ public class LibrarySystemTest {
         });
     }
 
+    /**
+     * Return Book Should Remove Lending.
+     */
     @Test
     public void returnBookShouldRemoveLending() throws UserOrBookDoesNotExistException, BookAlreadyBorrowedException {
         librarySystem.addStudentUser("Anna", true);
@@ -107,6 +134,9 @@ public class LibrarySystemTest {
         assertFalse(librarySystem.isBookBorrowed(book));
     }
 
+    /**
+     * Return Book That Is Not Borrowed Should Throw Exception.
+     */
     @Test
     public void returningBookThatIsNotBorrowedShouldThrowException() {
         librarySystem.addStudentUser("Anna", true);

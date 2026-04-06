@@ -7,6 +7,9 @@ import is.hi.hbv202g.assignment8.service.LibrarySystem;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class LibraryObserverTest {
+    /**
+     * Observer Should Receive Notification When Student Is Added.
+     */
     @Test
     public void observerShouldReceiveNotificationWhenStudentIsAdded() {
         LibrarySystem librarySystem = new LibrarySystem();

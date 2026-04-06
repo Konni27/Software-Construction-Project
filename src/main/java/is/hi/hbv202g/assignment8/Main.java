@@ -10,6 +10,9 @@ import is.hi.hbv202g.assignment8.ui.LibraryTextUI;
  */
 public class Main
 {
+    /**
+     * Starts the program.
+     */
     public static void main( String[] args ) {
         LibrarySystem librarySystem = new LibrarySystem();
         librarySystem.addObserver(new ConsoleLoggerObserver());

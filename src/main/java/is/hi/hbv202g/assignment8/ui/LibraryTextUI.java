@@ -10,17 +10,25 @@ import is.hi.hbv202g.assignment8.service.LibrarySystem;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * Text-based user interface for the library system.
+ */
 public class LibraryTextUI {
 
     private final LibrarySystem librarySystem;
     private final Scanner scanner;
 
-
+    /**
+     * Creates a text UI for the given library system.
+     */
     public LibraryTextUI(LibrarySystem librarySystem) {
         this.librarySystem = librarySystem;
         this.scanner = new Scanner(System.in);
     }
 
+    /**
+     * Starts the text UI loop.
+     */
     public void start() {
         boolean running = true;
 
@@ -66,6 +74,9 @@ public class LibraryTextUI {
         }
     }
 
+    /**
+     * Prints the menu.
+     */
     private void printMenu() {
         System.out.println();
         System.out.println("=== Library System Menu ===");
@@ -82,6 +93,9 @@ public class LibraryTextUI {
         System.out.print("Choose an option: ");
     }
 
+    /**
+     * Handles adding a student.
+     */
     private void handleAddStudent() {
         System.out.print("Enter student name: ");
         String name = scanner.nextLine();
@@ -92,6 +106,9 @@ public class LibraryTextUI {
         librarySystem.addStudentUser(name, feePaid);
     }
 
+    /**
+     * Handles adding a faculty member.
+     */
     private void handleAddFacultyMember() {
         System.out.print("Enter faculty member name: ");
         String name = scanner.nextLine();
@@ -102,6 +119,9 @@ public class LibraryTextUI {
         librarySystem.addFacultyMemberUser(name, department);
     }
 
+    /**
+     * Handles adding a book with a single author.
+     */
     private void handleAddBook() {
         System.out.print("Enter book title: ");
         String title = scanner.nextLine();
@@ -112,7 +132,9 @@ public class LibraryTextUI {
         librarySystem.addBookWithTitleAndNameOfSingleAuthor(title, authorName);
     }
 
-
+    /**
+     * Handles finding a book by title.
+     */
     private void handleFindBook() {
         System.out.print("Enter book title: ");
         String title = scanner.nextLine();
@@ -126,7 +148,9 @@ public class LibraryTextUI {
         }
     }
 
-
+    /**
+     * Handles borrowing a book.
+     */
     private void handleBorrowBook() {
         try {
             System.out.print("Enter user name: ");
@@ -145,6 +169,9 @@ public class LibraryTextUI {
         }
     }
 
+    /**
+     * Handles returning a book.
+     */
     private void handleReturnBook() {
         try {
             System.out.print("Enter user name: ");
@@ -163,6 +190,9 @@ public class LibraryTextUI {
         }
     }
 
+    /**
+     * Prints all books.
+     */
     private void showAllBooks() {
         List<Book> books = librarySystem.getBooks();
 
@@ -177,6 +207,9 @@ public class LibraryTextUI {
         }
     }
 
+    /**
+     * Prints all users.
+     */
     private void showAllUsers() {
         List<User> users = librarySystem.getUsers();
 
@@ -191,6 +224,9 @@ public class LibraryTextUI {
         }
     }
 
+    /**
+     * Prints all lendings.
+     */
     private void showAllLendings() {
         List<Lending> lendings = librarySystem.getLendings();
 
