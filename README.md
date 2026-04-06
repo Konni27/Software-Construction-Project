@@ -1,19 +1,51 @@
-# HBV202GAssignment8
-A Maven project skeleton. The provided Maven POM sets the Java version to 21.
+# Library Management System
 
-All classes need to be located in Java package `is.hi.hbv202g.assignment8`.
+A text-based library management system written in Java.  
+The project demonstrates Maven, JUnit testing, UML design, refactoring, packaging, and the Observer design pattern.
 
-Class and method names and parameter names and types of the submitted solution need to be **exactly** the same 
-as in the UML class diagram in the assignment PDF. 
+## Features
 
-If you like, you can import from project directory `UML` the file 
-`library_system.uxf` into the online UML editor https://www.umletino.com/ 
-and copy/paste from there class and method names: click on a class and then, 
-you can copy from the `properties` window on the right hand side class 
-and method names.
+- Add books
+- Add student users
+- Add faculty member users
+- Find books by title
+- Find users by name
+- Borrow books
+- Return books
+- Extend lendings
+- View all books
+- View all users
+- View all active lendings
+- Observer notifications for library events
 
-Maven:
+## Technologies Used
 
-- `mvn compile` compiles all implementation classes.
-- `mvn exec:java` executes the `main` method of the implementation, however that creates only an instance of the `LibrarySystem` class, but nothing more.
-- `mvn test` runs test cases, however the that creates only an instance of the `LibrarySystem` class, but nothing more.
+- Java
+- Maven
+- JUnit 5
+
+## Project Structure
+
+- `model` - domain classes such as `Book`, `User`, and `Lending`
+- `service` - core business logic in `LibrarySystem`
+- `observer` - Observer pattern interfaces and implementations
+- `ui` - text-based user interface
+- `exception` - custom exception classes
+
+## Maven Goals
+
+The project supports the following Maven goals:
+
+- `mvn compile`
+- `mvn test`
+- `mvn exec:java`
+- `mvn package`
+- `mvn site`
+
+## How to Run
+
+### Run with Maven
+
+mvn compile
+mvn exec:java
+mvn test
