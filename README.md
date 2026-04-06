@@ -1,7 +1,7 @@
 # Library Management System
 
 A text-based library management system written in Java.  
-The project demonstrates Maven, JUnit testing, UML design, refactoring, packaging, and the Observer design pattern.
+The project demonstrates Maven, JUnit testing, UML design, refactoring, packaging and the Observer design pattern.
 
 ## Features
 
@@ -26,7 +26,7 @@ The project demonstrates Maven, JUnit testing, UML design, refactoring, packagin
 
 ## Project Structure
 
-- `model` - domain classes such as `Book`, `User`, and `Lending`
+- `model` - domain classes such as `Book`, `User` and `Lending`
 - `service` - core business logic in `LibrarySystem`
 - `observer` - Observer pattern interfaces and implementations
 - `ui` - text-based user interface

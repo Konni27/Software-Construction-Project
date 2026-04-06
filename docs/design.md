@@ -15,7 +15,7 @@ The project is a text-based library management system with a clear separation be
 ## Business Logic
 
 The main business logic is implemented in `LibrarySystem`.  
-It stores books, users, lendings, and observers, and provides methods for borrowing, returning, and extending lendings.
+It stores books, users, lendings and observers and provides methods for borrowing, returning and extending lendings.
 
 ## User Interface
 
