@@ -12,7 +12,6 @@ The project demonstrates Maven, JUnit testing, UML design, refactoring, packagin
 - Find users by name
 - Borrow books
 - Return books
-- Extend lendings
 - View all books
 - View all users
 - View all active lendings
