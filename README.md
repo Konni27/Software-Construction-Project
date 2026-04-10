@@ -41,6 +41,9 @@ The project supports the following Maven goals:
 - `mvn package`
 - `mvn site`
 
+## UML
+![UML Class Diagram](UMLKONNI/library-system-class-diagram.png)
+
 ## How to Run
 
 ### Run with Maven
